@@ -1,0 +1,29 @@
+<div class="custom-margin contact-container">
+  <h5>{{title}}</h5>
+  <ng-container *ngIf="!sendNew">
+    <div class="alert alert-success alert-dismissible" role="alert">
+      Yor message has been sended!
+    </div>
+    <button type="button" (click)="sendNew=true" class="btn btn-primary btn-sm">Send New</button>
+  </ng-container>
+  <ng-container *ngIf="sendNew">
+    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="nameInput" class="form-label">Name</label>
+        <input type="text" formControlName="name" class="form-control" id="nameInput" placeholder="Name">
+      </div>
+
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email</label>
+        <input type="email" formControlName="email" class="form-control" id="emailInput" placeholder="Email address">
+      </div>
+      <div class="mb-3">
+        <label for="msgInput" class="form-label">Message</label>
+        <textarea class="form-control" formControlName="message" id="msgInput" rows="3"></textarea>
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary" [disabled]="!formData.valid" type="submit">SUBMIT</button>
+      </div>
+    </form>
+  </ng-container>
+</div>

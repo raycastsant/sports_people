@@ -1,0 +1,54 @@
+<div class="custom-margin">
+  <h3>{{title}}</h3>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Upcoming</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <!-- List available sport lives-->
+      <li *ngFor="let live of sportLives" class="list-group-item live-container">
+        <div class="container text-center live-container">
+          <div class="row gx-1">
+            <div class="col-3">
+              <div class="px-2">
+                <p class="live-starting-title">Starting</p>
+                <p class="live-date-text">{{live.date | date:'short'}}</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="px-1">
+                <a href="https://fakeurl.example" target="_blank">
+                  <img class="live-thumbnail" src="assets/sports.jpg" alt="Live thumbnail" />
+                </a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="px-3">
+                <p class="live-title">{{live.title | uppercase}}</p>
+                <p class="live-sub-title">{{live.subTitle}}</p>
+                <div class="live-language-box">
+                  EN
+                </div>
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="px-1">
+                <button type="button" (click)="live.showDetails=!live.showDetails"
+                  class="btn btn-info btn-sm">Info</button>
+              </div>
+            </div>
+          </div>
+          <ng-container *ngIf="live.showDetails">
+            <div class="row gx-1">
+              <div class="col-12 live-details-divider"></div>
+            </div>
+            <div class="row gx-1">
+              <div class="col-12">{{live.description}}</div>
+            </div>
+          </ng-container>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="athlete-details">
+  <div class="card">
+    <h5 class="card-header">
+      <button type="button" class="btn-close" (click)="hide()" aria-label="Close"></button>
+    </h5>
+    <ng-container *ngIf="editMode">
+      <app-athlete-form [athlete]="athlete" (hideEvent)='hideDetails($event)'></app-athlete-form>
+    </ng-container>
+    <ng-container *ngIf="!editMode">
+      <div class="card-body container px-4 text-center">
+        <div class="row gx-5">
+          <div class="col">
+            <div class="p-8">
+              <img src="/assets/{{athlete.picture}}" class="img-fluid details-picture" alt="athlete's picture" />
+            </div>
+          </div>
+          <div class="col">
+            <div class="p-2">
+              <p>Name:
+                <span class="info">{{athlete.name | uppercase}}</span>
+              </p>
+              <p>Country:
+                <span class="info">{{athlete.country}}</span>
+              </p>
+              <p>Age:
+                <span class="info">{{athlete.age}}</span>
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="p-2">
+              <p>Gold Medals:
+                <span class="info">{{athlete.goldMedals}}</span>
+              </p>
+              <p>Silver Medals:
+                <span class="info">{{athlete.silverMedals}}</span>
+              </p>
+              <p>Bronze Medals:
+                <span class="info">{{athlete.bronzeMedals}}</span>
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="p-2">
+              <button type="button" class="btn btn-primary btn-sm" (click)="editMode=!editMode">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+                </svg>
+                Edit
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row gx-5">
+          <div class="col">
+            <div class="p-2">
+              <p class="athlete-description">{{athlete.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
