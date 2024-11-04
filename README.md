@@ -1,4 +1,4 @@
-# SportsPeople, by Raisel Castellanos
+# SportsPeople, by Raisel Castellanos Santiago
 
 Basic Angular example of:
 - Routing
